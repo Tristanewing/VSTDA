@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+
+
+
+ <meta charset="UTF-8">
+ <title>Gulp Demo</title>
+<!-- bower:css -->
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<!-- endbower -->
+
+<!-- inject:css -->
+<link rel="stylesheet" href="/styles/index.css">
+<!-- endinject -->
+</head>
+
+<body ng-controller="ctrl" >
+
+<div>
+<div class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Todo List</legend>
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Type here</label>  
+  <div class="col-md-4">
+  <input name="textinput" type="text" placeholder="Enter things you have to do" class="form-control input-md" ng-model="toDo" ng-model="myArray">
+  <span class="help-block">help</span>  
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic">Priority</label>
+  <div class="col-md-4">
+    <select id="selectbasic" name="selectbasic" class="form-control" ng-model="selectedList" ng-options="list as list.name for list in priority">
+     
+      
+    </select>
+  </div>
+</div>
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton">Click here</label>
+  <div class="col-md-4">
+    <button name="singlebutton" class="btn btn-primary" ng-click="add()">Add</button>
+  </div>
+</div>
+
+</fieldset>
+</div>
+
+<div class="center">
+<ul>
+
+<li ng-repeat="name in myArray track by $index">{{ name }}</li>
+
+
+</ul>
+</div>
+
+
+</div>
+
+
+
+<!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<!-- endbower -->
+
+<!-- inject:js -->
+<script src="/app/index.js"></script>
+<!-- endinject -->
+
+</body>
+</html>
